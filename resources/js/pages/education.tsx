@@ -1,4 +1,3 @@
-// import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
@@ -8,8 +7,8 @@ import { MdOutlineSchool } from "react-icons/md";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Dashboard',
-        href: '/',
+        title: 'Education',
+        href: '/education',
     },
 ];
 
@@ -29,15 +28,49 @@ const education: Education[] = [
         location: "Manila, PH",
         description: ""
     },
+    {
+        date: "2015 - 2019",
+        school: "Ramon Magsaysay High School",
+        program: "Special Science",
+        location: "Manila, PH",
+        description: "Robotics Builder and Programmer; Chess Varsity"
+    },
+    {
+        date: "2019 - 2021",
+        school: "University of Santo Tomas",
+        program: "Science, Technology, Engineering, and Mathematics (STEM)",
+        location: "Manila, PH",
+        description: ""
+    },
+    {
+        date: "2021",
+        school: "FEU Institute of Technology",
+        program: "BS Computer Science, with Specialization in Software Engineering",
+        location: "Manila, PH",
+        description: ""
+    },
+    {
+        date: "2023 - Present",
+        school: "University of the Cordilleras",
+        program: "BS Information Technology, Major in Network and Security",
+        location: "Baguio, PH",
+        description: "Consistent Academic Awardee"
+    }
 ]
 
-export default function Dashboard() {
+export default function Education() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
-            <VerticalTimeline>
+            <VerticalTimeline
+                lineColor='var(--primary)'
+            >
                 {education.map(educ => (
                     <VerticalTimelineElement
+                        contentStyle={{
+                            background: 'var(--card)',
+                            color: 'var(--card-foreground)',
+                        }}
                         className="vertical-timeline-element--work"
                         date={educ.date}
                         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
