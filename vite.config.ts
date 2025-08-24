@@ -4,6 +4,18 @@ import laravel from 'laravel-vite-plugin';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
+const corsMiddleware = () => ({
+    name: 'cors',
+    configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            next();
+        });
+    },
+});
+
 export default defineConfig({
     plugins: [
         laravel({
@@ -13,6 +25,7 @@ export default defineConfig({
         }),
         react(),
         tailwindcss(),
+        corsMiddleware()
     ],
     esbuild: {
         jsx: 'automatic',
@@ -22,4 +35,10 @@ export default defineConfig({
             'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
     },
+    server: {
+        host: '192.168.100.7',
+        hmr: {
+            host: '192.168.100.7'
+        }
+    }
 });
