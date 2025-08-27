@@ -61,7 +61,7 @@ const education: Education[] = [
 export default function Education() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
+            <Head title="Aboutme" />
             <VerticalTimeline
                 lineColor='var(--primary)'
             >
@@ -73,7 +73,7 @@ export default function Education() {
                         }}
                         className="vertical-timeline-element--work"
                         date={educ.date}
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                        iconStyle={{ background: educ.date.endsWith("Present") ? 'rgb(33, 150, 243)' : 'var(--icon-background)', color: '#fff' }}
                         icon={<MdOutlineSchool />}
                     >
                         <h3 className="vertical-timeline-element-title">{educ.school}</h3>
@@ -87,3 +87,5 @@ export default function Education() {
         </AppLayout>
     );
 }
+
+// 'rgb(33, 150, 243)'
