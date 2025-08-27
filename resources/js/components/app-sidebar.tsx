@@ -13,13 +13,8 @@ import { MdOutlineSchool } from "react-icons/md";
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
-        href: '/',
-        icon: RxDashboard,
-    },
-    {
         title: 'About Me',
-        href: 'about',
+        href: '/',
         icon: UserRound
     },
     {

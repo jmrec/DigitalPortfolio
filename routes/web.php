@@ -3,19 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('dashboard');
-})->name('dashboard');
-
 //Route::middleware(['auth', 'verified'])->group(function () {
 //    Route::get('dashboard', function () {
 //        return Inertia::render('dashboard');
 //    })->name('dashboard');
 //});
 
-Route::get('about', function () {
-    return Inertia::render('about');
-})->name('about');
+Route::get('/', function () {
+    return Inertia::render('aboutme');
+})->name('aboutme');
 
 Route::get('education', function () {
     return Inertia::render('education');
